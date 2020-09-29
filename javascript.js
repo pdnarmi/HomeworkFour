@@ -112,7 +112,7 @@ function clearQuiz(){
 }
 
 function initialsInput() {
-
+  var submitBtn = document.getElementById("submit")
     quizDiv.innerHTML = `<form action="javascript:void(0)" onSubmit="saveScore()">
                             <label>
                                 Please input your intials! <input id = "initials" name = "userInitials" type = "text" required><button id = "submit" type="submit">Submit!</button>
@@ -127,6 +127,7 @@ function initialsInput() {
 
 
 function saveScore(){
+  alert("Score has been saved to High Scores page!");
     var userInitials = document.querySelector("#initials");
     var storedScores = localStorage.getItem("scores");
 
@@ -150,6 +151,7 @@ function saveScore(){
     }
     localStorage.setItem("Player Initials", userInitials.value);
     localStorage.setItem("Player Score", score.innerText);
+    
 }
 
 function quizBuild() {
@@ -172,6 +174,7 @@ function quizBuild() {
                     `<div class = "slide">
                         <div class = "question">${currentQuestion.title}</div>
                         <div class = "choices">${possibleAnswers.join('')}</div>
+                        <div><button = "submit" onclick = "initialsInput()">Submit Results</button></div>
                     </div>`,
     )
   })
@@ -185,7 +188,7 @@ function quizBuild() {
 
   startButton.classList.add("hidden");
   timer.classList.remove("hidden");
-  startTimer(5, timerDisplay)
+  startTimer(120, timerDisplay)
   score.innerText = 0;
 }
 
@@ -212,7 +215,7 @@ function showNextSlide() {
         timer = timer+3;
     }    
     if (answerList[currentSlide].querySelector(`input:checked`).value != questions[currentSlide].answer){
-        timer = timer-5;
+        timer = timer-25;
      }
 
 
