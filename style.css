@@ -1,0 +1,33 @@
+.question{
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .choices {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .choices label{
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .slide{
+    display: none;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .activeSlide{
+    display: block;
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  .hidden{
+    display: none;
+  }
+
+  .scoreTable{
+    width: 100%;
+  }

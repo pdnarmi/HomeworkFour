@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="javascript.js"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -41,6 +40,7 @@
       .row.content {height:auto;} 
     }
   </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -66,12 +66,12 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-        <div id = "quizTimer">
-
+        <div id = "quizTimer" class="hidden">
+            Remaining: <span id = "time"></span>
         </div>
         <div id = "userScore">
             <small><h3>Score</h3></small>
-            <div id = "score">0</div>
+            <div id = "score"><span id = "scoreTxt">0</span></div>
         </div>
     </div>
     <div class="col-sm-8 text-left"> 
@@ -80,7 +80,9 @@
       <hr>
       <h3 class = "text-center">Quiz</h3>
       <div class= "quizContainer">
-          <div id = "quizDiv"></div>
+          <div id = "quizDiv">
+          </div>
+          <button id = "startQuiz" onclick="quizBuild()">Click Here to Start!</button>
       </div>
     </div>
     <div class="col-sm-2 sidenav">
@@ -101,4 +103,5 @@
 </footer>
 
 </body>
+<script src="javascript.js"></script>
 </html>
