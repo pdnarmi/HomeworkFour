@@ -119,6 +119,7 @@ function initialsInput() {
                                 Please input your intials! <input id = "initials" name = "userInitials" type = "text" required><button id = "submit" type="submit">Submit!</button>
                             </label>
                         </form>`;
+  clearInterval(interval);
 }
 
 // Function saves intials and scores; also combines into an array of objects in localstorage
