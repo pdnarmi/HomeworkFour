@@ -1,9 +1,10 @@
+// Function to output player name and highscore
 (function(){
     var scoreTable = document.getElementById('scoreTable');
     var scoreString = localStorage.getItem("scores");
 
     const output = [];
-
+// Parses localstorage of scores object into readable text
     if (scoreString != null){
         var scores = JSON.parse(scoreString);
 

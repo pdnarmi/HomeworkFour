@@ -9,7 +9,7 @@ var highscoreDiv = document.getElementById('userScore');
 var userInitals = document.getElementById('userInitials');
 var interval;
 var timer;
-
+// Timer function
 function startTimer(duration, display){
 
     var minutes, seconds;
@@ -37,7 +37,7 @@ function startTimer(duration, display){
 }
 
 
-
+// Array of quiz questions stored as an array of nested objects
 var questions = [
   {
     title: 'Commonly used data types DO NOT include:',
@@ -106,11 +106,12 @@ var questions = [
     answer: 'a',
   },
 ]
-
+// Clears content of quizDiv
 function clearQuiz(){
     quizDiv.innerHTML = ``;
 }
 
+// Creates input for player initials
 function initialsInput() {
   var submitBtn = document.getElementById("submit")
     quizDiv.innerHTML = `<form action="javascript:void(0)" onSubmit="saveScore()">
@@ -118,19 +119,14 @@ function initialsInput() {
                                 Please input your intials! <input id = "initials" name = "userInitials" type = "text" required><button id = "submit" type="submit">Submit!</button>
                             </label>
                         </form>`;
-    // var submitBtn = document.querySelector("#submit");
-    // var userInitials = document.querySelector("#initials");
-    // submitBtn.addEventListener("click", function(){
-    //     localStorage.setItem("Player Initials", userInitials)
-    // })
 }
 
-
+// Function saves intials and scores; also combines into an array of objects in localstorage
 function saveScore(){
   alert("Score has been saved to High Scores page!");
     var userInitials = document.querySelector("#initials");
     var storedScores = localStorage.getItem("scores");
-
+// Null Check within saveScore func 
     if(storedScores === null){
         var scores = [];
         var newScore = {
@@ -154,6 +150,7 @@ function saveScore(){
     
 }
 
+//Builds quiz that displays question slides
 function quizBuild() {
 
   const output = []
@@ -182,7 +179,6 @@ function quizBuild() {
 
   slides = document.querySelectorAll('.slide')
 
-  console.log(slides);
   
   showSlide(0);
 
@@ -192,6 +188,7 @@ function quizBuild() {
   score.innerText = 0;
 }
 
+// Function that controls which question slide is displayed
 function showSlide(n) {
   slides[currentSlide].classList.remove('activeSlide')
   slides[n].classList.add('activeSlide')
@@ -200,7 +197,7 @@ function showSlide(n) {
 
 
 
-
+// Quiz game rules
 function showNextSlide() {
     
     const selector = `input[name=question${currentSlide}]:checked`;
